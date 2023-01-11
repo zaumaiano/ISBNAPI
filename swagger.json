@@ -1,0 +1,10 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "ISBNAPI",
+    "version" : "1.0.0",
+    "description" : "ISBNAPI"
+  },
+  "paths" : { },
+  "basePath" : "/isbnapi/v1"
+}
