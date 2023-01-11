@@ -1,0 +1,25 @@
+
+
+Importing file: /services/isbnservice.wsdl
+
+The WSDL import will proceed with bindings ISBNServiceSoapBinding.
+Creating wsdl schema document for RemoteFiles/isbnservice.xsd.
+Parsing wsdl binding {http://webservices.daehosting.com/ISBN}ISBNServiceSoapBinding.
+Parsing wsdl binding input IsValidISBN13.
+Parsing wsdl binding output IsValidISBN13.
+Parsing wsdl binding input IsValidISBN10.
+Parsing wsdl binding output IsValidISBN10.
+Processing doc style for operation IsValidISBN13.
+Processing doc style for operation IsValidISBN10.
+Populating WSDL schema RemoteFiles/isbnservice.xsd.
+Creating file RemoteFiles/isbnservice.xsd in the workspace.
+Creating file RemoteFiles/isbnservice_InlineSchema1.xsd in the workspace.
+Copying source WSDL isbnservice.wso?wsdl to isbnservice.wsdl.
+
+Elapsed time processing this message definition file: 0.134 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+

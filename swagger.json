@@ -5,6 +5,41 @@
     "version" : "1.0.0",
     "description" : "ISBNAPI"
   },
-  "paths" : { },
-  "basePath" : "/isbnapi/v1"
+  "paths" : {
+    "/{ISBNValue}/validate" : {
+      "get" : {
+        "operationId" : "getValidate",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Retrieve validate",
+        "parameters" : [ {
+          "required" : true,
+          "name" : "ISBNValue",
+          "in" : "path",
+          "type" : "string"
+        } ]
+      }
+    }
+  },
+  "basePath" : "/isbnapi/v1",
+  "definitions" : {
+    "ResponseData" : {
+      "type" : "object",
+      "properties" : {
+        "Value" : {
+          "type" : "string"
+        },
+        "IsValid" : {
+          "type" : "boolean"
+        }
+      }
+    }
+  }
 }
