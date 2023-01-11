@@ -1,0 +1,9 @@
+CREATE COMPUTE MODULE getValidate_Failure
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET OutputRoot.JSON.Data.ValidationMessage = 'The ISBNValue inserted does not exist!';
+		
+		RETURN TRUE;
+	END;
+END MODULE;

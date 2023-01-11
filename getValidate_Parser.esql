@@ -1,0 +1,9 @@
+CREATE COMPUTE MODULE getValidate_Parser
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET	OutputRoot.XMLNSC.soap:Envelope.soap:Body.isbn:IsValidISBN13.isbn:sISBN = Environment.Variables.ISBNValue;
+
+		RETURN TRUE;
+	END;
+END MODULE;

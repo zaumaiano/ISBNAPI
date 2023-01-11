@@ -1,0 +1,9 @@
+CREATE COMPUTE MODULE getValidate_Fault
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET OutputRoot.JSON.Data.ValidationMessage = 'Some error occured on server!';
+		
+		RETURN TRUE;
+	END;
+END MODULE;

@@ -1,0 +1,9 @@
+CREATE COMPUTE MODULE getValidate_ValMessage
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET OutputRoot.JSON.Data.ValidationMessage = 'TThe ISBNValue inserted has an invalid format!';
+		
+		RETURN TRUE;
+	END;
+END MODULE;

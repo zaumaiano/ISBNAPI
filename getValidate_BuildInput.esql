@@ -1,0 +1,9 @@
+CREATE COMPUTE MODULE getValidate_BuildInput
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET Environment.Variables.ISBNValue = InputLocalEnvironment.REST.Input.Parameters.ISBNValue;
+		
+		RETURN TRUE;
+	END;
+END MODULE;
