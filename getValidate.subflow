@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmCompute.msgnode="ComIbmCompute.msgnode" xmlns:ComIbmJavaCompute.msgnode="ComIbmJavaCompute.msgnode" xmlns:ComIbmSOAPRequest.msgnode="ComIbmSOAPRequest.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="getValidate.subflow" nsPrefix="getValidate.subflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1" nodeLayoutStyle="RECTANGLE">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <translation xmi:type="utility:TranslatableString" key="getValidate" bundleName="getValidate" pluginId="ISBNAPI"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/ISBNAPI/icons/full/obj16/getValidate.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/ISBNAPI/icons/full/obj30/getValidate.gif"/>
+    <composition>
+      <nodes xmi:type="eflow:FCMSource" xmi:id="InTerminal.Input_1" location="510,50" rotation="TOP_TO_BOTTOM">
+        <translation xmi:type="utility:TranslatableString" key="Input" bundleName="getValidate" pluginId="ISBNAPI"/>
+      </nodes>
+      <nodes xmi:type="eflow:FCMSink" xmi:id="OutTerminal.Output_1" location="510,590" rotation="TOP_TO_BOTTOM">
+        <translation xmi:type="utility:TranslatableString" key="Output" bundleName="getValidate" pluginId="ISBNAPI"/>
+      </nodes>
+      <nodes xmi:type="ComIbmSOAPRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="510,410" rotation="TOP_TO_BOTTOM" wsdlFileName="RemoteFiles/isbnservice.wsdl" selectedPortType="ISBNServiceSoapType" selectedBinding="ISBNServiceSoapBinding" selectedOperation="IsValidISBN13" selectedPort="ISBNServiceSoap" targetNamespace="http://webservices.daehosting.com/ISBN" useHTTPTransport="true" webServiceURL="http://webservices.daehosting.com/services/isbnservice.wso" sslProtocol="TLS">
+        <translation xmi:type="utility:ConstantString" string="ISBNService"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="510,310" rotation="TOP_TO_BOTTOM" computeExpression="esql://routine/#getValidate_Parser.Main">
+        <translation xmi:type="utility:ConstantString" string="Parser"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="290,310" rotation="TOP_TO_BOTTOM" computeExpression="esql://routine/#getValidate_Failure.Main">
+        <translation xmi:type="utility:ConstantString" string="Failure"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="510,510" rotation="TOP_TO_BOTTOM" computeExpression="esql://routine/#getValidate_Responser.Main">
+        <translation xmi:type="utility:ConstantString" string="Responser"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_7" location="690,510" rotation="TOP_TO_BOTTOM" computeExpression="esql://routine/#getValidate_Fault.Main">
+        <translation xmi:type="utility:ConstantString" string="Fault"/>
+      </nodes>
+      <nodes xmi:type="ComIbmJavaCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_8" location="510,210" rotation="TOP_TO_BOTTOM" javaClass="GetValidate_ValidateISBN">
+        <translation xmi:type="utility:ConstantString" string="ValidateISBN"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_10" location="510,130" rotation="TOP_TO_BOTTOM" computeExpression="esql://routine/#getValidate_BuildInput.Main">
+        <translation xmi:type="utility:ConstantString" string="BuildInput"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="290,230" computeExpression="esql://routine/#getValidate_ValMessage.Main">
+        <translation xmi:type="utility:ConstantString" string="ValMessage"/>
+      </nodes>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_7" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.fault" targetTerminalName="InTerminal.in">
+        <bendPoints>-47,56,-224,-44</bendPoints>
+        <bendPoints>80,57,-97,-43</bendPoints>
+        <bendPoints>125,57,-55,-43</bendPoints>
+      </connections>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_1" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_5" targetNode="FCMComposite_1_5" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_6" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.failure" targetTerminalName="InTerminal.in">
+        <bendPoints>-63,45,157,145</bendPoints>
+        <bendPoints>-93,45,127,145</bendPoints>
+        <bendPoints>-95,-153,125,-53</bendPoints>
+        <bendPoints>-276,-152,-56,-52</bendPoints>
+      </connections>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_9" targetNode="OutTerminal.Output_1" sourceNode="FCMComposite_1_7" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in">
+        <bendPoints>-54,39,123,-35</bendPoints>
+        <bendPoints>-233,37,-56,-37</bendPoints>
+      </connections>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_10" targetNode="OutTerminal.Output_1" sourceNode="FCMComposite_1_5" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_11" targetNode="OutTerminal.Output_1" sourceNode="FCMComposite_1_3" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in">
+        <bendPoints>-54,48,-274,-240</bendPoints>
+        <bendPoints>87,49,-133,-239</bendPoints>
+        <bendPoints>87,237,-133,-37</bendPoints>
+        <bendPoints>165,237,-55,-37</bendPoints>
+      </connections>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_14" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_8" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_16" targetNode="FCMComposite_1_10" sourceNode="InTerminal.Input_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_17" targetNode="FCMComposite_1_8" sourceNode="FCMComposite_1_10" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_4" targetNode="FCMComposite_1_7" sourceNode="FCMComposite_1_8" sourceTerminalName="OutTerminal.failure" targetTerminalName="InTerminal.in">
+        <bendPoints>-63,59,-243,-241</bendPoints>
+        <bendPoints>125,60,-55,-240</bendPoints>
+        <bendPoints>125,78,-55,-222</bendPoints>
+        <bendPoints>125,147,-55,-153</bendPoints>
+        <bendPoints>125,215,-55,-85</bendPoints>
+      </connections>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_7" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_8" sourceTerminalName="OutTerminal.alternate" targetTerminalName="InTerminal.in">
+        <bendPoints>-47,40,162,31</bendPoints>
+        <bendPoints>-92,40,117,31</bendPoints>
+        <bendPoints>-102,40,107,31</bendPoints>
+        <bendPoints>-305,39,-96,30</bendPoints>
+        <bendPoints>-305,8,-96,-1</bendPoints>
+      </connections>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_8" targetNode="OutTerminal.Output_1" sourceNode="FCMComposite_1_4" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in">
+        <bendPoints>95,0,-114,-365</bendPoints>
+        <bendPoints>95,327,-114,-38</bendPoints>
+        <bendPoints>154,327,-55,-38</bendPoints>
+      </connections>
+    </composition>
+    <propertyOrganizer/>
+    <stickyBoard/>
+  </eClassifiers>
+</ecore:EPackage>
