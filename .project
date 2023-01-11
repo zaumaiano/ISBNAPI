@@ -3,6 +3,7 @@
 	<name>ISBNAPI</name>
 	<comment></comment>
 	<projects>
+		<project>ISBNAPIJava</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -1,0 +1,2 @@
+DECLARE soap NAMESPACE 'http://schemas.xmlsoap.org/soap/envelope/';
+DECLARE isbn NAMESPACE 'http://webservices.daehosting.com/ISBN';
